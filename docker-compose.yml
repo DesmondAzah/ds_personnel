@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  ds_personnel:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8005:8005"
+    volumes:
+      - .:/var/www/html
+      - /var/www/html/vendor/
+    command: php -S ds_personnel:8005 public/index.php
+    restart: always
